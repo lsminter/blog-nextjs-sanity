@@ -1,3 +1,5 @@
+"use client"
+
 import 'tailwindcss/tailwind.css'
 
 export default function RootLayout({

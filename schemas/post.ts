@@ -75,7 +75,7 @@ export default defineType({
     defineField({
       name: 'coverImage',
       title: 'Cover Image',
-      type: 'image',
+      type: 'cloudinary.asset',
       options: {
         hotspot: true,
       },

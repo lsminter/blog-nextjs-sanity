@@ -1,7 +1,6 @@
 import cn from 'classnames'
-import { urlForImage } from 'lib/sanity.image'
-import Image from 'next/image'
 import Link from 'next/link'
+import { CldImage } from 'next-cloudinary'
 
 interface CoverImageProps {
   title: string
@@ -12,20 +11,22 @@ interface CoverImageProps {
 
 export default function CoverImage(props: CoverImageProps) {
   const { title, slug, image: source, priority } = props
-  const image = source?.asset?._ref ? (
+  console.log(source)
+  const image = source ? (
     <div
       className={cn('shadow-small', {
         'transition-shadow duration-200 hover:shadow-medium': slug,
       })}
     >
-      <Image
+      <CldImage
         className="h-auto w-full"
         width={2000}
         height={1000}
         alt=""
-        src={urlForImage(source).height(1000).width(2000).url()}
+        src={source.public_id}
         sizes="100vw"
         priority={priority}
+        tint="70:blue:green:purple"
       />
     </div>
   ) : (

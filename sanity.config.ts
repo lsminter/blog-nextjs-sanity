@@ -16,6 +16,7 @@ import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { presentationTool } from 'sanity/presentation'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
+import { cloudinarySchemaPlugin } from 'sanity-plugin-cloudinary'
 import authorType from 'schemas/author'
 import postType from 'schemas/post'
 import settingsType from 'schemas/settings'
@@ -33,6 +34,7 @@ export default defineConfig({
     types: [authorType, postType, settingsType],
   },
   plugins: [
+    cloudinarySchemaPlugin(),
     deskTool({
       structure: settingsStructure(settingsType),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
